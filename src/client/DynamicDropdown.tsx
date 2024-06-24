@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, ComponentType, forwardRef } from "react";
+import React, { useState, ComponentType } from "react";
+import Link from "next/link";
 
 interface DynamicDropdownProps {
   links: { href: string; label: string }[];
@@ -14,14 +15,11 @@ const DynamicDropdown: React.FC<DynamicDropdownProps> = ({
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Function to render a link, using Next.js Link if available
   const renderLink = (href: string, label: string, index: number) => {
     if (LinkComponent) {
       return (
         <li key={index}>
-          <LinkComponent href={href}>
-            <a>{label}</a>
-          </LinkComponent>
+          <LinkComponent href={href}>{label}</LinkComponent>
         </li>
       );
     } else {
