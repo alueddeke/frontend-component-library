@@ -16,13 +16,13 @@ const Navbar: React.FC<NavbarProps> = ({ links, dropdownLinks }) => (
     <ul>
       {links.map((link, index) => (
         <li key={index}>
-          <Link href={link.href}>
+          <Link href={link.href} legacyBehavior>
             <a>{link.label}</a>
           </Link>
         </li>
       ))}
       <li>
-        <DynamicDropdown links={dropdownLinks} />
+        <DynamicDropdown links={dropdownLinks} LinkComponent={Link} />
       </li>
     </ul>
   </nav>

@@ -19,7 +19,9 @@ const DynamicDropdown: React.FC<DynamicDropdownProps> = ({
     if (LinkComponent) {
       return (
         <li key={index}>
-          <LinkComponent href={href}>{label}</LinkComponent>
+          <LinkComponent href={href} legacyBehavior>
+            <a>{label}</a>
+          </LinkComponent>
         </li>
       );
     } else {
